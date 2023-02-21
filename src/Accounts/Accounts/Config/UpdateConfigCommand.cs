@@ -16,6 +16,7 @@ using Microsoft.Azure.Commands.Common.Exceptions;
 using Microsoft.Azure.Commands.Profile.Models;
 using Microsoft.Azure.Commands.ResourceManager.Common;
 using Microsoft.Azure.PowerShell.Common.Config;
+using Microsoft.WindowsAzure.Commands.Utilities.Common;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -82,6 +83,18 @@ namespace Microsoft.Azure.Commands.Common.Authentication.Config
                 });
                 WriteObject(new PSConfig(updated));
             }
+        }
+
+        protected override void EndProcessing()
+        {
+            _qosEvent.UpdatedConfig = SerializeUpdatedConfigs();
+            base.EndProcessing();
+        }
+
+        private string SerializeUpdatedConfigs()
+        {
+            var configs = GetConfigsSpecifiedByUser();
+            return string.Join(";", configs.Select((key, value) => $"{key}:{value}"));
         }
     }
 }

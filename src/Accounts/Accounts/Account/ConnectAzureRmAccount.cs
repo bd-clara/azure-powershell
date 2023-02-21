@@ -44,6 +44,7 @@ using Microsoft.WindowsAzure.Commands.Common;
 using Microsoft.WindowsAzure.Commands.Common.Utilities;
 using Microsoft.WindowsAzure.Commands.Utilities.Common;
 using Microsoft.Azure.PowerShell.Common.Share.Survey;
+using Microsoft.Azure.Commands.Profile.Utilities.Recommendation;
 
 namespace Microsoft.Azure.Commands.Profile
 {
