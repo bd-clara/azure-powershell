@@ -104,7 +104,7 @@ ProvisioningState   : Succeeded
 The above will create a resource group, Virtual WAN, Virtual Network, Virtual Hub in West US in "testRG" resource group in Azure. 
 A VPN gateway will be created thereafter in the Virtual Hub with 2 scale units.
 
-After the gateway has been created, it uses Set-AzVpnGateway to update BgpPeeringAddress.
+After the gateway has been created, it uses Update-AzVpnGateway to update BgpPeeringAddress.
 
 ### Example 3
 
